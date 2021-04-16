@@ -12,5 +12,5 @@ Detailed info at:
 https://cookiecutter.readthedocs.io/en/latest/usage.html
 
 ```bash
-cookiecutter https://github.com/user/repo-name.git --directory="directory1-name"
+cookiecutter https://github.com/carneirofc/cookiecutter-templates --directory="directory1-name"
 ```
