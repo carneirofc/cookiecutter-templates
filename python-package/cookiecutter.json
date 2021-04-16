@@ -1,7 +1,11 @@
 {
-    "author_email": "MyName@...",
-    "author_name": "MyName",
-    "gh_owner": "carneirofc",
+    "author_name": "My Full Name",
+    "author_user": "MyFullName",
+    "author_email": "email@mail.com",
+    "gh_owner": "{{ cookiecutter.author_user.replace(' ', '') }}",
     "project_description": "Simple but effective",
-    "project_name": "MyProjectName"
+    "project_name": "MyProjectName",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "project_version": "0.0.0",
+    "open_source_license": ["GLPv3"]
 }

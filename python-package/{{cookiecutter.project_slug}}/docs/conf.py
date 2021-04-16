@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# {{cookiecutter.project_name}} documentation build configuration file, created by
+# {{cookiecutter.project_slug}} documentation build configuration file, created by
 # sphinx-quickstart on Thu Mar 15 16:47:29 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -18,7 +18,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../{{cookiecutter.package_name}}'))
+sys.path.insert(0, os.path.abspath('../{{cookiecutter.project_slug}}'))
 
 # -- General configuration ------------------------------------------------
 
@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'{{cookiecutter.project_name}}'
+project = u'{{cookiecutter.project_slug}}'
 copyright = u'2018, {{cookiecutter.author_name}}'
 author = u'{{cookiecutter.author_name}}'
 
@@ -241,7 +241,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '{{cookiecutter.project_name}}_doc'
+htmlhelp_basename = '{{cookiecutter.project_slug}}_doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -267,7 +267,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, '{{cookiecutter.package_name}}.tex', u'{{cookiecutter.project_name}} Documentation',
+    (master_doc, '{{cookiecutter.project_slug}}.tex', u'{{cookiecutter.project_slug}} Documentation',
      u'{{cookiecutter.author_name}}', 'manual'),
 ]
 
@@ -309,7 +309,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, '{{cookiecutter.package_name}}', u'{{cookiecutter.project_name}} Documentation',
+    (master_doc, '{{cookiecutter.project_slug}}', u'{{cookiecutter.project_slug}} Documentation',
      [author], 1)
 ]
 
@@ -324,8 +324,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, '{{cookiecutter.package_name}}', u'{{cookiecutter.project_name}} Documentation',
-     author, '{{cookiecutter.package_name}}', '{{cookiecutter.project_description}}',
+    (master_doc, '{{cookiecutter.project_slug}}', u'{{cookiecutter.project_slug}} Documentation',
+     author, '{{cookiecutter.project_slug}}', '{{cookiecutter.project_description}}',
      'Miscellaneous'),
 ]
 
