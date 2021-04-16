@@ -1,10 +1,10 @@
 {
-    "ansible_version": "",
+    "ansible_version": "2.9",
     "author_company": "",
     "author_email": "",
     "author_name": "",
     "author_user": "",
-    "melocule_version": "",
+    "melocule_version": "3.0",
     "role_description": "",
     "role_name": ""
 }
