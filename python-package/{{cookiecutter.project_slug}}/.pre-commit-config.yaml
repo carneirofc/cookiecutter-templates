@@ -1,9 +1,25 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+  - repo: https://github.com/PyCQA/doc8
+    rev: 0.8.1
     hooks:
-      - id: trailing-whitespace
+      - id: doc8
+        name: doc8
+        description: This hook runs doc8 for linting docs
+        entry: python -m doc8
+        language: python
+        files: \.rst$
+        require_serial: true
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: check-byte-order-marker
+      - id: check-executables-have-shebangs
       - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: mixed-line-ending
+      - id: trailing-whitespace
 
   - repo: https://github.com/psf/black
     rev: 19.10b0
@@ -16,6 +32,10 @@ repos:
     rev: 3.8.4
     hooks:
       - id: flake8
+        additional_dependencies:
+          - flake8-absolute-import
+          - flake8-black
+          - flake8-docstrings
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: master
