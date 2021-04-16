@@ -1,16 +1,16 @@
 # Molecule managed
-
+{% raw %}
 {% if item.registry is defined %}
-FROM {{ "{{" }} item.registry.url {{ "}}" }}/{{ "{{" }} item.image {{ "}}" }}
+FROM {{ item.registry.url }}/{{ item.image }}
 {% else %}
-FROM {{ "{{" }} item.image {{ "}}" }}
+FROM {{ item.image }}
 {% endif %}
 
 RUN \
 {% if item.dns_servers is defined and item.dns_servers %}
     {% for dns in item.dns_servers %}
         {% if dns|length %}
-            echo "nameserver {{ "{{" }} dns {{ "}}" }}" >> /etc/resolv.conf && \
+            echo "nameserver {{ dns }}" >> /etc/resolv.conf && \
         {% endif %}
     {% endfor %}
 {% endif %}
@@ -20,3 +20,5 @@ RUN \
     elif [ $(command -v zypper) ]; then zypper refresh && zypper install -y python sudo bash python-xml && zypper clean -a; \
     elif [ $(command -v apk) ]; then apk update && apk add --no-cache python sudo bash ca-certificates; \
     elif [ $(command -v xbps-install) ]; then xbps-install -Syu && xbps-install -y python sudo bash ca-certificates && xbps-remove -O; fi
+
+{% endraw %}
