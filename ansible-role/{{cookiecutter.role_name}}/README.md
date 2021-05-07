@@ -26,16 +26,30 @@ ansible-playbook -i host, -u user -k --ask-become-pass playbook.yml
 
 ## Tests
 
-Tests are performed using Molecule. To run them with python virtualenv, issue:
+Python dependencies
 
+```bash
+pip install -r molecule/default/requirements.txt
+```
+
+Tests are performed using Molecule. It is recommended to use conda or a virtualenv.
+
+Conda:
+```bash
+conda create --name molecule-py36 python=3.6
+conda activate molecule-py36
+pip install -r molecule/default/requirements.txt
+molecule test
+```
+
+Virtualenv:
 ```bash
     bash -c "\
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd {{ cookiecutter.role_name }} && \
-        pip install molecule testinfra \
-            yamllint ansible-lint flake8 docker-py && \
+        pip install -r molecule/default/requirements.txt && \
         molecule test"
 ```
 
@@ -43,10 +57,11 @@ Optionally, you can specify dns servers to be used for both
 provisioner create and run (docker in our case), by using
 the following variables:
 
-
 ```bash
+    export DNS_SEARCH="<DNS Search>"
     export DNS_SERVER1="<DNS server 1>"
     export DNS_SERVER2="<DNS server 2>"
+    export APT_PROXY_SERVER="<APT Proxy Address>"
 ```
 
 This can be used, for instance, in hosts that have non-default

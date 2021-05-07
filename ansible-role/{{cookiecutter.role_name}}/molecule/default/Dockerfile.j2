@@ -1,9 +1,14 @@
-# Molecule managed
 {% raw %}
+# Molecule managed
+
 {% if item.registry is defined %}
 FROM {{ item.registry.url }}/{{ item.image }}
 {% else %}
 FROM {{ item.image }}
+{% endif %}
+
+{% if item.apt_proxy_server is defined %}
+RUN if [ $(command -v apt-get) ]; then echo "Acquire::http { Proxy \"http://{{ item.apt_proxy_server }}\"; }" > /etc/apt/apt.conf.d/proxy; fi
 {% endif %}
 
 RUN \
@@ -13,6 +18,9 @@ RUN \
             echo "nameserver {{ dns }}" >> /etc/resolv.conf && \
         {% endif %}
     {% endfor %}
+    {% if item.dns_search is defined %}
+            echo "search {{ item.dns_search }}" >> /etc/resolv.conf && \
+    {% endif %}
 {% endif %}
     if [ $(command -v apt-get) ]; then apt-get update && apt-get install -y python sudo bash ca-certificates && apt-get clean; \
     elif [ $(command -v dnf) ]; then dnf makecache && dnf --assumeyes install python sudo python-devel python2-dnf bash && dnf clean all; \
