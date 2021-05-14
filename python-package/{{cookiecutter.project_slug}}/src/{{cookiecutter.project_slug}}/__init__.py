@@ -1,4 +1,4 @@
-#!/usr/bin/env pythona
+#!/usr/bin/env python
 
 __author__ = "{{cookiecutter.author_name}}"
 __email__ = "{{cookiecutter.author_email}}"

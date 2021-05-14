@@ -1,17 +1,33 @@
 #!/usr/bin/env python3
-from setuptools import setup, find_namespace_packages
-from {{cookiecutter.project_slug}} import __author__, __version__, __email__
 import pkg_resources
 
-def get_abs_path(relative):
+from setuptools import setup, find_packages
+from src.{{cookiecutter.project_slug}} import __author__, __version__, __email__
+
+def get_abs_path(relative) -> str:
   return pkg_resources.resource_filename(__name__, relative)
 
-def main():
-    with open(get_abs_path("README.md"), "r") as _f:
-        long_description = _f.read().strip()
+def get_long_description() -> str:
+    long_description = ""
 
+    with open(get_abs_path("README.md"), "r") as _f:
+        long_description += _f.read().strip()
+
+    long_description += "\n\n"
+
+    with open(get_abs_path("CHANGES.md"), "r") as _f:
+        long_description += _f.read().strip()
+
+    return long_description
+
+def get_requirements() -> str:
     with open(get_abs_path("requirements.txt"), "r") as _f:
-        _requirements = _f.read().strip().split("\n")
+        return _f.read().strip().split("\n")
+
+def main():
+    long_description = get_long_description()
+
+    requirements = get_requirements()
 
     setup(
         author=__author__,
@@ -27,9 +43,15 @@ def main():
         name="{{cookiecutter.project_name}}",
         url="https://github.com/{{cookiecutter.gh_owner}}/{{cookiecutter.project_slug}}",
         version=__version__,
-        install_requires=_requirements,
+        install_requires=requirements,
         include_package_data=True,
-        packages=find_namespace_packages(include=["{{cookiecutter.project_slug}}"]),
+        packages=find_packages(
+            where="src",
+            include=[
+                "{{cookiecutter.project_slug}}*",
+            ],
+        ),
+        package_dir={"": "src"},
         python_requires=">=3.6",
         scripts=[],
         zip_safe=False,

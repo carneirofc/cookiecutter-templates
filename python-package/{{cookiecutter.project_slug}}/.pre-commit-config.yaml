@@ -1,44 +1,36 @@
 repos:
-  - repo: https://github.com/PyCQA/doc8
-    rev: 0.8.1
-    hooks:
-      - id: doc8
-        name: doc8
-        description: This hook runs doc8 for linting docs
-        entry: python -m doc8
-        language: python
-        files: \.rst$
-        require_serial: true
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.4.0
     hooks:
-      - id: check-byte-order-marker
+      - id: check-added-large-files
       - id: check-executables-have-shebangs
       - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
       - id: mixed-line-ending
       - id: trailing-whitespace
+      - id: fix-encoding-pragma
+        args: ['--remove']
 
   - repo: https://github.com/psf/black
-    rev: 19.10b0
+    rev: 21.5b1
     hooks:
       - id: black
-        language_version: python3
-        args: ["--config", ".black"]
+        language_version: python3 # Should be a command that runs python3.6+
+        args: ['--config', '.black', '-v']
 
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.4
+  - repo: https://github.com/pycqa/flake8
+    rev: 3.9.2
     hooks:
       - id: flake8
         additional_dependencies:
-          - flake8-absolute-import
-          - flake8-black
-          - flake8-docstrings
+          - flake8-bugbear
+          - flake8-implicit-str-concat
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: master
+  - repo: local
     hooks:
-      - id: mypy
-        args: [--ignore-missing-imports]
+      - id: version-update
+        name: version-update
+        description: Update project version
+        entry: bash .version-update.hook
+        language: system
