@@ -1,9 +1,3 @@
-*.log
+*.retry
+*/__pycache__
 *.pyc
-*.swp
-.DS_Store
-.cache
-.molecule
-.vagrant
-__pycache__
-playbook.retry
