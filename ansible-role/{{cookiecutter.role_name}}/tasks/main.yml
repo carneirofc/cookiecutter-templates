@@ -10,3 +10,5 @@
       paths:
         - '{{ "{{" }} role_path {{ "}}" }}/vars'
 
+- name: Hello Facts
+  setup:

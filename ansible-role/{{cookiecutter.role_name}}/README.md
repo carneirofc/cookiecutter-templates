@@ -1,12 +1,17 @@
-Description
------------------------
+## Description
 
 {{ cookiecutter.role_description }}
 
 ## Requirements
 
-- ansible >= {{ cookiecutter.ansible_version }}
-- molecule >= {{ cookiecutter.melocule_version }}
+```command
+pip install \
+    ansible=={{ ansible_version }} \
+    ansible-core=={{ ansible_core_version }} \
+    ansible-lint=={{ ansible_lint_version }} \
+    molecule=={{ molecule_version }} \
+    molecule-docker=={{ molecule_docker_version }}
+```
 
 ## Example Playbook
 
@@ -35,6 +40,7 @@ pip install -r molecule/default/requirements.txt
 Tests are performed using Molecule. It is recommended to use conda or a virtualenv.
 
 Conda:
+
 ```bash
 conda create --name molecule-py36 python=3.6
 conda activate molecule-py36
@@ -43,6 +49,7 @@ molecule test
 ```
 
 Virtualenv:
+
 ```bash
     bash -c "\
         cd ../ && \

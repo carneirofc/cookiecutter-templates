@@ -1,6 +1,7 @@
 BSD 2-Clause License
 
-Copyright (c) 2019, Brazilian Synchrotron Light Laboratory LNLS
+Copyright (c) 2021, {{ cookiecutter.author_company }} {{ cookiecutter.author_name }} {{ cookiecutter.author_email }} - {{ cookiecutter.author_user }}
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

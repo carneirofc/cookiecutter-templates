@@ -6,7 +6,7 @@ dependency:
   name: galaxy
   collections:
     - name: community.docker
-      version: 1.5.0
+      version: 2.0.2
   options:
     role-file: requirements.yml
     collection-file: requirements.yml
@@ -20,8 +20,8 @@ lint: |
   ansible-lint
 
 platforms:
-  - name: lnls-ans-role-ntp-instance
-    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+  - name: {{ cookiecutter.role_name }}
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian11-ansible}"
     command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
       - default_group
@@ -30,15 +30,15 @@ platforms:
     privileged: true
     pre_build_image: true
     build_image: false
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+    dns_servers: ["${DNS_SERVER1:-8.8.8.8}", "${DNS_SERVER2:-8.8.4.4}"]
 
 provisioner:
   name: ansible
-  inventory:
-    links:
-      group_vars: ../../../../group_vars/
-    group_vars:
-      default_group:
+# inventory:
+#   links:
+#     group_vars: ../../../../group_vars/
+#   group_vars:
+#     default_group:
 
 verifier:
   name: ansible

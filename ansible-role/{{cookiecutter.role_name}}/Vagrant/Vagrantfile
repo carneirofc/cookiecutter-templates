@@ -2,15 +2,18 @@
 # vi: set ft=ruby :
 
 hosts = {
-  "debian.buster"  => "192.168.33.10",
-  "debian.stretch" => "192.168.33.11",
-  "centos.7"  => "192.168.33.12",
+  "debian.bullseye"  => "192.168.33.10",
+  "debian.buster"  => "192.168.33.11",
+  "debian.stretch" => "192.168.33.12",
+  "centos.7"  => "192.168.33.13",
 }
 
 Vagrant.configure("2") do |config|
   hosts.each do |name, ip|
     config.vm.define name do |machine|
-      if name.eql? "debian.stretch" then
+      if name.eql? "debian.bullseye" then
+        machine.vm.box = "debian/bullseye64"
+      elsif name.eql? "debian.stretch" then
         machine.vm.box = "debian/stretch64"
       elsif name.eql? "debian.buster" then
         machine.vm.box = "debian/buster64"

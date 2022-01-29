@@ -1,10 +1,13 @@
 {
-    "ansible_version": "2.9",
+    "ansible_version": "5.2.0",
+    "ansible_core_version": "2.12.1",
+    "ansible_lint_version": "5.3.2",
+    "molecule_version": "3.5.2",
+    "molecule_docker_version": "1.1.0",
     "author_company": "",
-    "author_email": "",
-    "author_name": "",
-    "author_user": "",
-    "melocule_version": "3.0",
+    "author_email": "claudiofcarneiro@hotmail.com",
+    "author_name": "Claudio F. Carneiro",
+    "author_user": "carneirofc",
     "role_description": "",
     "role_name": ""
 }

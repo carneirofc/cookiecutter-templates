@@ -18,7 +18,7 @@
           - "../../../../group_vars/{{ ansible_os_family }}.yml"
           - "../../../../group_vars/all"
 
-    - name: Apt Proxy entry
+    - name: Configure apt to use a proxy defined by the variable 'apt_proxy_server'
       template:
         src: proxy.j2
         dest: /etc/apt/apt.conf.d/proxy
@@ -34,4 +34,4 @@
 {% endraw %}
 
   roles:
-    - role: lnls-ans-role-ntp
+    - role: {{ cookiecutter.role_name }}
