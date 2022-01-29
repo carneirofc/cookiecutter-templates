@@ -6,11 +6,11 @@
 
 ```command
 pip install \
-    ansible=={{ ansible_version }} \
-    ansible-core=={{ ansible_core_version }} \
-    ansible-lint=={{ ansible_lint_version }} \
-    molecule=={{ molecule_version }} \
-    molecule-docker=={{ molecule_docker_version }}
+    ansible=={{ cookiecutter.ansible_version }} \
+    ansible-core=={{ cookiecutter.ansible_core_version }} \
+    ansible-lint=={{ cookiecutter.ansible_lint_version }} \
+    molecule=={{ cookiecutter.molecule_version }} \
+    molecule-docker=={{ cookiecutter.molecule_docker_version }}
 ```
 
 ## Example Playbook
