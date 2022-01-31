@@ -10,5 +10,16 @@
       paths:
         - '{{ "{{" }} role_path {{ "}}" }}/vars'
 
+- name: Include platform specific tasks
+  include_tasks: '{{ "{{" }} item {{ "}}" }}'
+  with_first_found:
+    - files:
+        - '{{ "{{" }} ansible_distribution {{ "}}" }}-{{ "{{" }} ansible_distribution_release {{ "}}" }}.yml'
+        - '{{ "{{" }} ansible_distribution {{ "}}" }}.yml'
+        - '{{ "{{" }} ansible_os_family {{ "}}" }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ "{{" }} role_path {{ "}}" }}/vars'
+
 - name: Hello Facts
   setup:
