@@ -19,7 +19,7 @@
         - '{{ "{{" }} ansible_os_family {{ "}}" }}.yml'
       ignore_errors: true
       paths:
-        - '{{ "{{" }} role_path {{ "}}" }}/vars'
+        - '{{ "{{" }} role_path {{ "}}" }}/tasks'
 
 - name: Hello Facts
   setup:
