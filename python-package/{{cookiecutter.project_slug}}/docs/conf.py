@@ -1,4 +1,4 @@
-# {{cookiecutter.project_slug}} documentation build configuration file, created by
+# {{cookiecutter.project_slug_code}} documentation build configuration file, created by
 # sphinx-quickstart on Thu Mar 15 16:47:29 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -16,11 +16,11 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../{{cookiecutter.project_slug}}'))
+import sphinx_rtd_theme
+
+sys.path.insert(0, os.path.abspath('../{{cookiecutter.project_slug_code}}'))
 
 # -- General configuration ------------------------------------------------
-
-import sphinx_rtd_theme
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #

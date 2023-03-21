@@ -22,4 +22,4 @@ jobs:
           python -m pip install --upgrade bandit
 
       - name: Bandit
-        run: bandit --recursive {{ cookiecutter.project_slug }}
+        run: bandit --recursive {{ cookiecutter.project_slug_code }}

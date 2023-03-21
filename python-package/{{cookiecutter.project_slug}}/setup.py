@@ -2,7 +2,7 @@
 import pkg_resources
 
 from setuptools import setup, find_packages
-from src.{{cookiecutter.project_slug}} import __author__, __version__, __email__
+from src.{{cookiecutter.project_slug_code}} import __author__, __version__, __email__
 
 def get_abs_path(relative) -> str:
   return pkg_resources.resource_filename(__name__, relative)
@@ -48,7 +48,7 @@ def main():
         packages=find_packages(
             where="src",
             include=[
-                "{{cookiecutter.project_slug}}*",
+                "{{cookiecutter.project_slug_code}}*",
             ],
         ),
         package_dir={"": "src"},

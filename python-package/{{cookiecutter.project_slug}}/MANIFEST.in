@@ -1,4 +1,4 @@
 include LICENSE
 include README.md
 include requirements.txt
-recursive-include src/{{cookiecutter.project_slug}} *.sh *.txt *.csv *.json
+recursive-include src/{{cookiecutter.project_slug_code}} *.sh *.txt *.csv *.json
