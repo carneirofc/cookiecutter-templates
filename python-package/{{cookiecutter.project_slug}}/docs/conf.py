@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # {{cookiecutter.project_slug}} documentation build configuration file, created by
 # sphinx-quickstart on Thu Mar 15 16:47:29 2018.
 #
