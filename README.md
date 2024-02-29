@@ -14,5 +14,6 @@ https://cookiecutter.readthedocs.io/en/latest/usage.html
 ```bash
 cookiecutter https://github.com/carneirofc/cookiecutter-templates --directory="ansible-role"
 cookiecutter https://github.com/carneirofc/cookiecutter-templates --directory="python-package"
+cookiecutter https://github.com/carneirofc/cookiecutter-templates --directory="ms-fastapi"
 ...
 ```
