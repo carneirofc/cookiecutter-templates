@@ -1,0 +1,24 @@
+{
+    "author_name": "My Full Name",
+    "author_user": "MyFullName",
+    "author_email": "email@mail.com",
+    "gh_owner": "{{ cookiecutter.author_user.replace(' ', '') }}",
+    "project_description": "Simple but effective",
+    "project_name": "MyProjectName",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "project_slug_code": "{{ cookiecutter.project_slug.replace('-','_') }}",
+    "project_version": "0.0.1",
+    "open_source_license": ["GLPv3", "MIT", ""],
+    "docker_base_image": "python:3.12.2-alpine3.19",
+
+    "flask_version": "2.0.1",
+    "flake8_version": "7.0.0",
+    "bandit_version": "1.7.7",
+    "black_version": "24.2.0",
+    "flake8_bugbear_version": "24.2.6",
+    "flake8_implicit_str_concat_version": "0.4.0",
+    "mypy_extensions_version": "1.0.0",
+    "mypy_version": "1.8.0",
+    "pre_commit_version": "3.6.2",
+    "pytest_version": "8.0.2"
+}

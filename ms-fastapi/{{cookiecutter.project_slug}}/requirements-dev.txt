@@ -1,0 +1,10 @@
+Flask=={{ cookiecutter.flask_version }}
+flake8=={{ cookiecutter.flake8_version }}
+bandit=={{ cookiecutter.bandit_version }}
+black=={{ cookiecutter.black_version }}
+flake8-bugbear=={{ cookiecutter.flake8_bugbear_version }}
+flake8-implicit-str-concat=={{ cookiecutter.flake8_implicit_str_concat_version }}
+mypy-extensions=={{ cookiecutter.mypy_extensions_version }}
+mypy=={{ cookiecutter.mypy_version }}
+pre-commit=={{ cookiecutter.pre_commit_version }}
+pytest=={{ cookiecutter.pytest_version }}
